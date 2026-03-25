@@ -1,11 +1,23 @@
-<div align="center">
+# Continuity
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+**Your health, your journey, your way.**
 
-  <h1>Built with AI Studio</h2>
+Continuity is a comprehensive health and wellness companion designed to help you build healthy habits, track progress, and connect with experts.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Features
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- **Personalized Onboarding**: Tailored experience based on your role and health goals.
+- **AI Coach**: Real-time guidance and support powered by Gemini.
+- **MDT Team**: Access to a Multi-Disciplinary Team of experts.
+- **CBT Tools**: Cognitive Behavioural Therapy tools for sustainable change.
+- **Progress Tracking**: Detailed charts and metrics for weight and daily check-ins.
+- **Rewards**: Earn points and badges for hitting your milestones.
 
-</div>
+## Tech Stack
+
+- **Frontend**: React, Vite, Tailwind CSS, Framer Motion
+- **Backend**: Firebase (Firestore, Auth, Storage)
+- **AI**: Google Gemini API (@google/genai)
+- **Icons**: Lucide React
+- **Charts**: Recharts
+- **Notifications**: Sonner

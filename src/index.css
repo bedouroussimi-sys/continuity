@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1D6A4A;
+  --color-mint: #E8F5EF;
+  --color-warm-white: #FAFAFA;
+  --color-accent-gold: #F0A500;
+  --color-text-dark: #1A1A1A;
+  --color-muted-text: #6B7280;
+}
+
+@layer base {
+  body {
+    @apply bg-warm-white text-text-dark font-sans;
+  }
+}

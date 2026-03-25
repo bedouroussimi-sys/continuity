@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Patient or Clinician profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["patient", "clinician"] },
+        "onboardingComplete": { "type": "boolean" },
+        "phase": { "type": "string", "enum": ["phase1", "phase2", "maintenance"] },
+        "points": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "profile": {
+          "type": "object",
+          "properties": {
+            "age": { "type": "number" },
+            "gender": { "type": "string" },
+            "height": { "type": "number" },
+            "currentWeight": { "type": "number" },
+            "goalWeight": { "type": "number" },
+            "glp1Duration": { "type": "string" },
+            "primaryGoal": { "type": "string" },
+            "stepGoal": { "type": "number" },
+            "exerciseGoal": { "type": "number" },
+            "monthlyWeightTarget": { "type": "number" },
+            "challenges": { "type": "array", "items": { "type": "string" } },
+            "triggers": { "type": "string" },
+            "specialists": { "type": "array", "items": { "type": "string" } },
+            "supportPreference": { "type": "string" }
+          }
+        }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "DailyLog": {
+      "title": "Daily Log",
+      "description": "Daily check-in data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "date": { "type": "string" },
+        "mood": { "type": "integer" },
+        "hungerLevel": { "type": "integer" },
+        "energyLevel": { "type": "integer" },
+        "cravings": { "type": "boolean" },
+        "cravingTriggers": { "type": "array", "items": { "type": "string" } },
+        "cravingIntensity": { "type": "integer" },
+        "actedOnCraving": { "type": "string" },
+        "tookMedication": { "type": "string" },
+        "notes": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "date", "mood", "hungerLevel", "energyLevel", "cravings", "timestamp"]
+    },
+    "CBTRecord": {
+      "title": "CBT Record",
+      "description": "CBT Thought Record entry",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "situation": { "type": "string" },
+        "thought": { "type": "string" },
+        "emotion": { "type": "string" },
+        "emotionIntensity": { "type": "number" },
+        "evidenceAgainst": { "type": "string" },
+        "outcome": { "type": "number" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "situation", "thought", "timestamp"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Secure chat message",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["senderId", "receiverId", "text", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": { "schema": "User", "description": "User profiles" },
+    "/logs/{uid}/daily/{date}": { "schema": "DailyLog", "description": "Daily check-ins" },
+    "/cbt_records/{recordId}": { "schema": "CBTRecord", "description": "CBT thought records" },
+    "/messages/{chatId}/thread/{msgId}": { "schema": "Message", "description": "Secure messaging" },
+    "/foodLogs/{logId}": { "schema": "FoodLog", "description": "Meal logs" },
+    "/badges/{badgeId}": { "schema": "Badge", "description": "Earned badges" }
+  }
+}
